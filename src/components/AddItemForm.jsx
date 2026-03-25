@@ -7,7 +7,6 @@ function AddItemForm({ addItem }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // ✅ Validation
     if (!name || !price || Number(price) <= 0) {
       alert("Please enter a valid item and price");
       return;
@@ -21,7 +20,6 @@ function AddItemForm({ addItem }) {
 
     addItem(newItem);
 
-    // reset inputs
     setName("");
     setPrice("");
   }
@@ -30,21 +28,23 @@ function AddItemForm({ addItem }) {
     <form onSubmit={handleSubmit}>
       <h2>Add Item</h2>
 
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-        placeholder="Item name"
-      />
+      <div className="form-row">
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Item name"
+        />
 
-      <input
-        type="number"
-        value={price}
-        onChange={(e) => setPrice(e.target.value)}
-        placeholder="Price"
-      />
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          placeholder="Price"
+        />
 
-      <button type="submit">Add Item</button>
+        <button type="submit">Add Item</button>
+      </div>
     </form>
   );
 }

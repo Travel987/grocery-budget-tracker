@@ -6,15 +6,12 @@ function BudgetForm({ setBudget }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // ✅ Validation
     if (!inputBudget || Number(inputBudget) <= 0) {
       alert("Enter a valid budget");
       return;
     }
 
     setBudget(Number(inputBudget));
-
-    // reset input
     setInputBudget("");
   }
 
@@ -22,14 +19,16 @@ function BudgetForm({ setBudget }) {
     <form onSubmit={handleSubmit}>
       <h2>Set Your Budget</h2>
 
-      <input
-        type="number"
-        value={inputBudget}
-        onChange={(e) => setInputBudget(e.target.value)}
-        placeholder="Enter budget"
-      />
+      <div className="form-row">
+        <input
+          type="number"
+          value={inputBudget}
+          onChange={(e) => setInputBudget(e.target.value)}
+          placeholder="Enter budget"
+        />
 
-      <button type="submit">Set Budget</button>
+        <button type="submit">Set Budget</button>
+      </div>
     </form>
   );
 }
