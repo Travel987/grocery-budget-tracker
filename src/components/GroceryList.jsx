@@ -1,8 +1,6 @@
 function GroceryList({ items, deleteItem }) {
   return (
-    <div>
-      <h2>Grocery List</h2>
-
+    <>
       {items.length === 0 ? (
         <p>No items added yet.</p>
       ) : (
@@ -11,13 +9,13 @@ function GroceryList({ items, deleteItem }) {
             <li key={item.id}>
               {item.name} - ${item.price}{" "}
               <button type="button" onClick={() => deleteItem(item.id)}>
-                ❌
+                X
               </button>
             </li>
           ))}
         </ul>
       )}
-    </div>
+    </>
   );
 }
 
