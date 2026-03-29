@@ -3,48 +3,56 @@ import { useState } from "react";
 function AddItemForm({ addItem }) {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
+  const [error, setError] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (!name || !price || Number(price) <= 0) {
-      alert("Please enter a valid item and price");
+    if (!name || !price) {
+      setError("Please enter both item name and price.");
+      return;
+    }
+
+    if (Number(price) <= 0) {
+      setError("Price must be greater than 0.");
       return;
     }
 
     const newItem = {
       id: Date.now(),
-      name: name,
+      name,
       price: Number(price),
     };
 
     addItem(newItem);
-
     setName("");
     setPrice("");
+    setError("");
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add Item</h2>
+      <div className="form-row add-item-row">
+        <span>Add Item</span>
 
-      <div className="form-row">
         <input
           type="text"
+          placeholder="Item name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder="Item name"
         />
 
         <input
           type="number"
+          placeholder="Price"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
-          placeholder="Price"
         />
 
         <button type="submit">Add Item</button>
       </div>
+
+      {error && <p className="error-text">{error}</p>}
     </form>
   );
 }

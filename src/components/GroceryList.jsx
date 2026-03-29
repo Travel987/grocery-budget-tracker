@@ -1,21 +1,20 @@
+import GroceryItem from "./GroceryItem";
+
 function GroceryList({ items, deleteItem }) {
+  if (items.length === 0) {
+    return <p>No items added yet.</p>;
+  }
+
   return (
-    <>
-      {items.length === 0 ? (
-        <p>No items added yet.</p>
-      ) : (
-        <ul>
-          {items.map((item) => (
-            <li key={item.id}>
-              {item.name} - ${item.price}{" "}
-              <button type="button" onClick={() => deleteItem(item.id)}>
-                X
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </>
+    <div>
+      {items.map((item) => (
+        <GroceryItem
+          key={item.id}
+          item={item}
+          deleteItem={deleteItem}
+        />
+      ))}
+    </div>
   );
 }
 

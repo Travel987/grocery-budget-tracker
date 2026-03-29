@@ -1,34 +1,43 @@
 import { useState } from "react";
 
 function BudgetForm({ setBudget }) {
-  const [inputBudget, setInputBudget] = useState("");
+  const [input, setInput] = useState("");
+  const [error, setError] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (!inputBudget || Number(inputBudget) <= 0) {
-      alert("Enter a valid budget");
+    if (!input) {
+      setError("Please enter a budget.");
       return;
     }
 
-    setBudget(Number(inputBudget));
-    setInputBudget("");
+    if (Number(input) <= 0) {
+      setError("Budget must be greater than 0.");
+      return;
+    }
+
+    setBudget(Number(input));
+    setInput("");
+    setError("");
   }
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Set Your Budget</h2>
-
       <div className="form-row">
+        <span>Set Your Budget</span>
+
         <input
           type="number"
-          value={inputBudget}
-          onChange={(e) => setInputBudget(e.target.value)}
           placeholder="Enter budget"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
         />
 
         <button type="submit">Set Budget</button>
       </div>
+
+      {error && <p className="error-text">{error}</p>}
     </form>
   );
 }

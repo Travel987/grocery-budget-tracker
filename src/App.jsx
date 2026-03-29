@@ -1,15 +1,19 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
-import BudgetForm from "./components/BudgetForm";
-import AddItemForm from "./components/AddItemForm";
-import GroceryList from "./components/GroceryList";
-import Summary from "./components/Summary";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const [budget, setBudget] = useState(0);
   const [items, setItems] = useState([]);
 
-  const totalSpent = items.reduce((total, item) => total + item.price, 0);
+  const totalSpent = items.reduce(
+  (total, item) => total + Number(item.price),
+  0
+);
   const remaining = budget - totalSpent;
 
   function addItem(newItem) {
@@ -23,29 +27,29 @@ function App() {
   }
 
   return (
-    <div className="app-container">
-      <h1>Grocery Budget Tracker</h1>
+    <Router>
+      <Header />
 
-      <div className="card">
-        <BudgetForm setBudget={setBudget} />
-      </div>
-
-      <div className="card">
-        <AddItemForm addItem={addItem} />
-      </div>
-
-      <div className="card">
-        <GroceryList items={items} deleteItem={deleteItem} />
-      </div>
-
-      <div className="card">
-        <Summary
-          budget={budget}
-          totalSpent={totalSpent}
-          remaining={remaining}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              items={items}
+              addItem={addItem}
+              deleteItem={deleteItem}
+              budget={budget}
+              setBudget={setBudget}
+              totalSpent={totalSpent}
+              remaining={remaining}
+            />
+          }
         />
-      </div>
-    </div>
+        <Route path="/about" element={<About />} />
+      </Routes>
+
+      <Footer />
+    </Router>
   );
 }
 
