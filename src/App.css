@@ -350,8 +350,18 @@ button:hover {
     text-align: center;
   }
 }
+button {
+  background-color: #69d84f;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
 
 button:hover {
   opacity: 0.9;
 }
-transition: all 0.2s ease;
