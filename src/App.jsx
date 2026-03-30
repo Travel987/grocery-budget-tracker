@@ -24,6 +24,8 @@ function App() {
     setItems((currentItems) => [...currentItems, newItem]);
   }
 
+// Calculates remaining budget
+
   function deleteItem(id) {
     setItems((currentItems) =>
       currentItems.filter((item) => item.id !== id)
