@@ -21,7 +21,7 @@ function BudgetForm({ setBudget }) {
     setInput("");
     setError("");
   }
-
+// Handles budget input and validation
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-row">
