@@ -24,27 +24,35 @@ function Home({
 
       <div className="card">
         <h2>Features</h2>
-        <ul>
-          <li>Set a grocery budget</li>
-          <li>Add and remove items</li>
-          <li>Track total spending</li>
-          <li>See remaining balance instantly</li>
+        <ul className="feature-links">
+          <li>
+            <a href="#budget-section">Set a grocery budget</a>
+          </li>
+          <li>
+            <a href="#grocery-list-section">Add and remove items</a>
+          </li>
+          <li>
+            <a href="#summary-section">Track total spending</a>
+          </li>
+          <li>
+            <a href="#summary-section">See remaining balance instantly</a>
+          </li>
         </ul>
       </div>
 
-      <div className="card">
+      <div className="card" id="budget-section">
         <BudgetForm setBudget={setBudget} />
       </div>
 
-      <div className="card">
+      <div className="card" id="add-item-section">
         <AddItemForm addItem={addItem} />
       </div>
 
-      <div className="card">
+      <div className="card" id="grocery-list-section">
         <GroceryList items={items} deleteItem={deleteItem} />
       </div>
 
-      <div className="card">
+      <div className="card" id="summary-section">
         <Summary
           budget={budget}
           totalSpent={totalSpent}
