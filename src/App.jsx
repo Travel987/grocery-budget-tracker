@@ -6,6 +6,8 @@ import About from "./pages/About";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+// Main app component managing grocery budget and items
+
 function App() {
   const [budget, setBudget] = useState(0);
   const [items, setItems] = useState([]);
@@ -14,6 +16,8 @@ function App() {
   (total, item) => total + Number(item.price),
   0
 );
+
+// Calculates total spending
   const remaining = budget - totalSpent;
 
   function addItem(newItem) {
