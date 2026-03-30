@@ -350,3 +350,7 @@ button:hover {
     text-align: center;
   }
 }
+
+button:hover {
+  opacity: 0.9;
+}
