@@ -1,5 +1,7 @@
 import GroceryItem from "./GroceryItem";
 
+// Display message when no items are present
+
 function GroceryList({ items, deleteItem }) {
   if (items.length === 0) {
     return <p>No items added yet.</p>;
