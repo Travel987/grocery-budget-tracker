@@ -29,6 +29,7 @@ function AddItemForm({ addItem }) {
     setPrice("");
     setError("");
   }
+// Handles adding new grocery items
 
   return (
     <form onSubmit={handleSubmit}>
