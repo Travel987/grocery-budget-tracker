@@ -1,3 +1,6 @@
+
+// Displays individual grocery item with delete functionality
+
 function GroceryItem({ item, deleteItem }) {
   return (
     <div className="item-row">
