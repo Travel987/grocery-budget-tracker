@@ -5,7 +5,7 @@ function GroceryItem({ item, deleteItem }) {
   return (
     <div className="item-row">
       <span>
-        {item.name} - ${item.price}
+        {item.name} - ${Number(item.price).toFixed(2)}
       </span>
       <button onClick={() => deleteItem(item.id)}>Delete</button>
     </div>
