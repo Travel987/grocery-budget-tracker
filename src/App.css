@@ -486,3 +486,97 @@ html {
     justify-content: center;
   }
 }
+
+.progress-bar-wrapper {
+  margin-top: 20px;
+}
+
+.progress-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 24px;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background-color: #4caf50;
+  transition: width 0.4s ease, background-color 0.3s ease;
+  border-radius: 20px;
+}
+
+.progress-fill.warning {
+  background-color: #f0ad4e;
+}
+
+.progress-fill.danger {
+  background-color: #ff4d4f;
+}
+
+.flash {
+  animation: flashBar 0.8s infinite alternate;
+}
+
+@keyframes flashBar {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
+
+.progress-bar-wrapper {
+  margin-top: 20px;
+}
+
+.progress-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 24px;
+  background-color: #d9d9d9;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0;
+  background-color: #4caf50;
+  transition: width 0.4s ease, background-color 0.3s ease;
+  border-radius: 20px;
+}
+
+.progress-fill.warning {
+  background-color: #f0ad4e;
+}
+
+.progress-fill.danger {
+  background-color: #ff4d4f;
+}
+
+.flash {
+  animation: flashBar 0.8s infinite alternate;
+}
+
+@keyframes flashBar {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0.4;
+  }
+}
