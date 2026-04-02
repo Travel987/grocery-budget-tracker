@@ -417,9 +417,72 @@ html {
 .site-title {
   display: flex;
   align-items: center;
+  gap: 10px;
+}
+
+
+.header-wrapper {
+  width: 100%;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: bold;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .cart-icon {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .site-title {
+    font-size: 2rem;
+    justify-content: center;
+  }
+
+  .nav-links {
+    justify-content: center;
+  }
 }
