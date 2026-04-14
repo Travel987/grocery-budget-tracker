@@ -13,11 +13,8 @@ function App() {
   const [items, setItems] = useState([]);
 
 function resetAll() {
-  const confirmReset = window.confirm("Are you sure you want to reset everything?");
-  if (!confirmReset) return;
-
-  setItems([]);
-  setBudget(0);
+  setItems([]);
+  setBudget(0);
 }
 
 const totalSpent = items.reduce(
