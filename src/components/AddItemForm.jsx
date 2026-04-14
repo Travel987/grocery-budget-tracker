@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "./Button";
 
 function AddItemForm({ addItem }) {
   const [name, setName] = useState("");
@@ -45,8 +46,6 @@ function AddItemForm({ addItem }) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="form-row">
-        <span>Add Item</span>
-
         {error && <p className="error-text">{error}</p>}
 
         <input
@@ -87,10 +86,9 @@ function AddItemForm({ addItem }) {
           <option value="Frozen">Frozen</option>
         </select>
 
-        <button type="submit">Add Item</button>
+        <Button text="Add Item" type="submit" />
       </div>
     </form>
   );
 }
-
 export default AddItemForm;

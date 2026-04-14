@@ -4,6 +4,7 @@ import AddItemForm from "../components/AddItemForm";
 import GroceryList from "../components/GroceryList";
 import Summary from "../components/Summary";
 import SpendingBar from "../components/SpendingBar";
+import groceryBags from "../assets/grocery-bags.png";
 
 function Home({
   items,
@@ -34,6 +35,18 @@ function Home({
         </p>
       </div>
 
+<img
+  src={groceryBags}
+  alt="Shopping bag filled with fruits and vegetables representing grocery budgeting"
+  style={{
+    maxWidth: "220px",
+    display: "block",
+    margin: "0 auto 20px auto",
+    borderRadius: "12px",
+    backgroundColor: "transparent",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.2)"
+  }}
+/>
       <div className="card">
         <h2>Features</h2>
         <ul className="feature-links">
