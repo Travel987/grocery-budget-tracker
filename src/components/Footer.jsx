@@ -1,5 +1,9 @@
 function Footer() {
-  return <div className="footer">Built for LaunchCode Unit 1 Project</div>;
+  return (
+    <footer className="footer">
+      Built for LaunchCode Unit 1 Project
+    </footer>
+  );
 }
 
 export default Footer;

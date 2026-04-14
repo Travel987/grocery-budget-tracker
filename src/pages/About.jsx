@@ -52,6 +52,6 @@ function About() {
   );
 }
 
-<p>This project demonstrates core React concepts including state and routing.</p>
+
 
 export default About;

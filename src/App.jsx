@@ -12,6 +12,14 @@ function App() {
   const [budget, setBudget] = useState(0);
   const [items, setItems] = useState([]);
 
+function resetAll() {
+  const confirmReset = window.confirm("Are you sure you want to reset everything?");
+  if (!confirmReset) return;
+
+  setItems([]);
+  setBudget(0);
+}
+
   const totalSpent = items.reduce(
   (total, item) => total + Number(item.price),
   0
@@ -48,6 +56,7 @@ function App() {
               setBudget={setBudget}
               totalSpent={totalSpent}
               remaining={remaining}
+               resetAll={resetAll}
             />
           }
         />
@@ -58,5 +67,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;

@@ -1,25 +1,25 @@
 function SpendingBar({ budget, totalSpent }) {
-  const spentPercentage = budget > 0 ? (totalSpent / budget) * 100 : 0;
-  const cappedPercentage = Math.min(spentPercentage, 100);
+  if (budget <= 0) return null;
 
-  let barClass = "progress-fill";
+  const percentUsed = Math.min((totalSpent / budget) * 100, 100);
 
-  if (spentPercentage >= 90) {
-    barClass = "progress-fill danger flash";
-  } else if (spentPercentage >= 75) {
-    barClass = "progress-fill warning";
-  }
+  let barColor = "#4caf50";
+  if (percentUsed >= 75) barColor = "#f4b400";
+  if (percentUsed >= 100) barColor = "#d93025";
 
   return (
-    <div className="progress-bar-wrapper">
-      <p className="progress-label">Spending Progress</p>
-
-      <div className="progress-bar">
+    <div>
+      <h3>Spending Progress</h3>
+      <div className="bar-container">
         <div
-          className={barClass}
-          style={{ width: `${cappedPercentage}%` }}
+          className="bar-fill"
+          style={{
+            width: `${percentUsed}%`,
+            backgroundColor: barColor,
+          }}
         ></div>
       </div>
+      <p>{percentUsed.toFixed(0)}% of budget used</p>
     </div>
   );
 }

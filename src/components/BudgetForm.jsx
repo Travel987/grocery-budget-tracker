@@ -28,11 +28,13 @@ function BudgetForm({ setBudget }) {
         <span>Set Your Budget</span>
 
         <input
-          type="number"
-          placeholder="Enter budget"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-        />
+  type="number"
+  step="0.01"
+  min="0"
+  placeholder="Enter budget"
+  value={input}
+  onChange={(e) => setInput(e.target.value)}
+/>
 
         <button type="submit">Set Budget</button>
       </div>
