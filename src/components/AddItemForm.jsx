@@ -2,6 +2,7 @@ import { useState } from "react";
 
 function AddItemForm({ addItem }) {
   const [name, setName] = useState("");
+  const [quantity, setQuantity] = useState(1);
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("Produce");
   const [error, setError] = useState("");
@@ -9,8 +10,13 @@ function AddItemForm({ addItem }) {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (!name.trim() || !price) {
-      setError("Please enter both item name and price.");
+    if (!name.trim() || !price || !quantity) {
+      setError("Please enter item name, quantity, and price.");
+      return;
+    }
+
+    if (Number(quantity) <= 0) {
+      setError("Quantity must be greater than 0.");
       return;
     }
 
@@ -22,13 +28,15 @@ function AddItemForm({ addItem }) {
     const newItem = {
       id: Date.now(),
       name: name.trim(),
+      quantity: Number(quantity),
       price: parseFloat(price),
-      category: category,
+      category,
     };
 
     addItem(newItem);
 
     setName("");
+    setQuantity(1);
     setPrice("");
     setCategory("Produce");
     setError("");
@@ -45,21 +53,25 @@ function AddItemForm({ addItem }) {
           type="text"
           placeholder="Item name"
           value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-            if (error) setError("");
-          }}
+          onChange={(e) => setName(e.target.value)}
         />
 
         <input
           type="number"
+          min="1"
+          step="1"
+          placeholder="Quantity"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+        />
+
+        <input
+          type="number"
+          min="0.01"
           step="0.01"
-          placeholder="Price"
+          placeholder="Price per unit"
           value={price}
-          onChange={(e) => {
-            setPrice(e.target.value);
-            if (error) setError("");
-          }}
+          onChange={(e) => setPrice(e.target.value)}
         />
 
         <select

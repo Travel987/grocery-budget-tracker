@@ -1,10 +1,13 @@
-function Summary({ budget, totalSpent, remaining }) {
+function Summary({ budget, totalSpent, remaining, items }) {
   return (
     <div>
       <h2>Budget Summary</h2>
       <p>Budget: ${Number(budget).toFixed(2)}</p>
       <p>Total Spent: ${Number(totalSpent).toFixed(2)}</p>
-      <p>Remaining: ${Number(remaining).toFixed(2)}</p>
+      <p style={{ color: remaining < 0 ? "red" : "lightgreen" }}>
+  Remaining: ${Number(remaining).toFixed(2)}
+</p>
+      <p>Total Items: {items.length}</p>
 
       {remaining < 0 ? (
         <p className="error-text">You are over budget.</p>

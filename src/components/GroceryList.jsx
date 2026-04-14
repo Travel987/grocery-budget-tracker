@@ -4,7 +4,7 @@ import GroceryItem from "./GroceryItem";
 
 function GroceryList({ items, deleteItem }) {
   if (items.length === 0) {
-    return <p>No items added yet.</p>;
+    return <p>🛒 No items yet. Add your first grocery item above!</p>;
   }
 
   return (

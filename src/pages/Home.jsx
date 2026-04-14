@@ -22,6 +22,8 @@ function Home({
       ? items
       : items.filter((item) => item.category === selectedCategory);
 
+  const categoriesInUse = [...new Set(items.map((item) => item.category))];
+
   return (
     <div className="app-container">
       <div className="card">
@@ -60,18 +62,17 @@ function Home({
 
       <div className="card" id="grocery-list-section">
         <h2>Filter by Category</h2>
+
         <select
           value={selectedCategory}
           onChange={(e) => setSelectedCategory(e.target.value)}
         >
           <option value="All">All</option>
-          <option value="Produce">Produce</option>
-          <option value="Dairy">Dairy</option>
-          <option value="Meat">Meat</option>
-          <option value="Pantry">Pantry</option>
-          <option value="Snacks">Snacks</option>
-          <option value="Drinks">Drinks</option>
-          <option value="Frozen">Frozen</option>
+          {categoriesInUse.map((category) => (
+            <option key={category} value={category}>
+              {category}
+            </option>
+          ))}
         </select>
 
         <GroceryList items={filteredItems} deleteItem={deleteItem} />
@@ -82,6 +83,7 @@ function Home({
           budget={budget}
           totalSpent={totalSpent}
           remaining={remaining}
+          items={items}
         />
         <SpendingBar budget={budget} totalSpent={totalSpent} />
       </div>

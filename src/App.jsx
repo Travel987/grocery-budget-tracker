@@ -20,8 +20,8 @@ function resetAll() {
   setBudget(0);
 }
 
-  const totalSpent = items.reduce(
-  (total, item) => total + Number(item.price),
+const totalSpent = items.reduce(
+  (total, item) => total + Number(item.price) * Number(item.quantity),
   0
 );
 
